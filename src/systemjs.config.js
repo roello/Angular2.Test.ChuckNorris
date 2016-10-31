@@ -4,7 +4,7 @@
  */
 (function (global) {
     System.config({
-        baseURL: '../../',
+        baseURL: '../',
         paths: {
             // paths serve as alias
             'npm:': 'node_modules/'
@@ -29,7 +29,7 @@
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
             app: {
-                main: './binder/startup.js',
+                main: './main.js',
                 defaultExtension: 'js'
             },
             rxjs: {
