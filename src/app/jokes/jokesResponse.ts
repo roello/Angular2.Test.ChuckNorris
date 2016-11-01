@@ -1,6 +1,6 @@
-﻿import { joke } from "./joke"
+﻿import { Joke } from "./joke"
 
-export class jokesResponse {
+export class JokesResponse {
     type: string;
-    value: Array<joke>;    
+    value: Array<Joke>;    
 }

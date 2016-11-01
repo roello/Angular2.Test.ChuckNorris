@@ -1,4 +1,4 @@
-﻿export class joke {
+﻿export class Joke {
     id: string;
     joke: string;
 }

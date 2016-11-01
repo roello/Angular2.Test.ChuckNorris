@@ -9,17 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var JokeListComponent = (function () {
-    function JokeListComponent() {
+var platform_browser_1 = require("@angular/platform-browser");
+var joke_list_component_1 = require("./joke-list.component");
+var JokesModule = (function () {
+    function JokesModule() {
     }
-    JokeListComponent = __decorate([
-        core_1.Component({
-            selector: "joke-list-component",
-            templateUrl: "jokes/joke-list.component.html"
+    JokesModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule],
+            declarations: [joke_list_component_1.JokeListComponent],
+            bootstrap: [joke_list_component_1.JokeListComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], JokeListComponent);
-    return JokeListComponent;
+    ], JokesModule);
+    return JokesModule;
 }());
-exports.JokeListComponent = JokeListComponent;
-//# sourceMappingURL=joke-list.component.js.map
+exports.JokesModule = JokesModule;
+//# sourceMappingURL=jokes.module.js.map

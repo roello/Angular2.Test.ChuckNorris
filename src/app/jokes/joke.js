@@ -1,8 +1,8 @@
 "use strict";
-var joke = (function () {
-    function joke() {
+var Joke = (function () {
+    function Joke() {
     }
-    return joke;
+    return Joke;
 }());
-exports.joke = joke;
+exports.Joke = Joke;
 //# sourceMappingURL=joke.js.map
