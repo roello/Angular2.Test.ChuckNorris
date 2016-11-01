@@ -15,7 +15,7 @@ export class JokeListComponent implements OnInit {
 
     ngOnInit(): void {
         this.jokeService
-            .getRandomJokes(2)
+            .getRandomJokes(5)
             .subscribe(r => this.jokes = r.value);
     }
 }
