@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -9,3 +9,15 @@
 /src/obj/Debug
 /src/node_modules
 /.vs/Angular2.Test.ChuckNorris/v14
+src/app/jokes/joke-list.component.js
+src/app/jokes/joke-list.component.js.map
+src/app/jokes/joke.js
+src/app/jokes/joke.js.map
+src/app/jokes/joke.service.js
+src/app/jokes/joke.service.js.map
+src/app/jokes/jokes.module.js
+src/app/jokes/jokes.module.js.map
+src/app/jokes/jokesResponse.js
+src/app/jokes/jokesResponse.js.map
+src/app/main.js
+src/app/main.js.map
