@@ -10,17 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require('@angular/http');
 var joke_list_component_1 = require("./joke-list.component");
-var joke_service_simple_1 = require("./joke.service-simple");
+var joke_service_1 = require("./joke.service");
 var JokesModule = (function () {
     function JokesModule() {
     }
     JokesModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
             declarations: [joke_list_component_1.JokeListComponent],
             bootstrap: [joke_list_component_1.JokeListComponent],
-            providers: [joke_service_simple_1.JokeServiceSimple]
+            providers: [joke_service_1.JokeService]
         }), 
         __metadata('design:paramtypes', [])
     ], JokesModule);

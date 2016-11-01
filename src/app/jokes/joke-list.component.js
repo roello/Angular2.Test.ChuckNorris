@@ -9,21 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var joke_service_simple_1 = require("./joke.service-simple");
+var joke_service_1 = require("./joke.service");
+require('rxjs/add/operator/map');
 var JokeListComponent = (function () {
     function JokeListComponent(jokeService) {
         this.jokeService = jokeService;
     }
     JokeListComponent.prototype.ngOnInit = function () {
-        this.jokes = this.jokeService.getRandomJokes(2);
+        var _this = this;
+        this.jokeService
+            .getRandomJokes(2)
+            .subscribe(function (r) { return _this.jokes = r.value; });
     };
     JokeListComponent = __decorate([
         core_1.Component({
             selector: "joke-list-component",
             templateUrl: "jokes/joke-list.component.html",
-            providers: [joke_service_simple_1.JokeServiceSimple]
+            providers: [joke_service_1.JokeService]
         }), 
-        __metadata('design:paramtypes', [joke_service_simple_1.JokeServiceSimple])
+        __metadata('design:paramtypes', [joke_service_1.JokeService])
     ], JokeListComponent);
     return JokeListComponent;
 }());

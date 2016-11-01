@@ -9,21 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var jokes = { type: "success", value: [{ id: "1", joke: "hahah" }, { id: "2", joke: "whohhah" }] };
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
 var JokeService = (function () {
-    function JokeService() {
+    function JokeService(http) {
+        this.http = http;
+        this.apiRandomJokesUrl = 'http://api.icndb.com/jokes/random/'; // URL to get number of random jokes
+        this.apiCategoriesUrl = 'http://api.icndb.com/categories'; // URL to get categories
     }
     JokeService.prototype.getRandomJokes = function (count) {
-        var _this = this;
-        return jokes.value.map(function (j) { return _this.clone(j); }).slice(0, count);
-    };
-    JokeService.prototype.clone = function (object) {
-        // hack
-        return JSON.parse(JSON.stringify(object));
+        var url = "" + this.apiRandomJokesUrl + count;
+        console.log(url);
+        var jResponse = this.http.get(url)
+            .map(function (response) { return response.json(); });
+        return jResponse;
     };
     JokeService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], JokeService);
     return JokeService;
 }());

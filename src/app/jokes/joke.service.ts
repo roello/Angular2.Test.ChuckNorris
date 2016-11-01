@@ -1,19 +1,23 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 import { JokesResponse } from './JokesResponse';
 import { Joke } from './Joke';
 
-const jokes : JokesResponse = { type: "success", value: [{ id: "1", joke: "hahah" }, { id: "2", joke: "whohhah" }] } 
-
 @Injectable()
-export class JokeService {    
+export class JokeService {   
 
-    getRandomJokes(count: number): Joke[] {
-        return jokes.value.map(j => this.clone(j)).slice(0, count);
-    }
+    private apiRandomJokesUrl = 'http://api.icndb.com/jokes/random/';  // URL to get number of random jokes
+    private apiCategoriesUrl = 'http://api.icndb.com/categories';  // URL to get categories
 
-    private clone(object: any) {
-        // hack
-        return JSON.parse(JSON.stringify(object));
-    }
-}
+    constructor(private http: Http) { }
+
+    getRandomJokes(count: number): Observable<JokesResponse> {
+        let url = `${this.apiRandomJokesUrl}${count}`;
+        console.log(url);
+        let jResponse = this.http.get(url)
+            .map(response => response.json());
+        return jResponse; 
+    }    
+} 

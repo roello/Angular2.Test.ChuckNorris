@@ -1,13 +1,15 @@
 ﻿import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import { JokeListComponent } from "./joke-list.component";
-import { JokeServiceSimple } from "./joke.service-simple";
+import { JokeService } from "./joke.service";
 
 @NgModule({
-    imports: [BrowserModule],
+    imports: [BrowserModule, HttpModule],
     declarations: [JokeListComponent],
     bootstrap: [JokeListComponent],
-    providers: [JokeServiceSimple]
+    providers: [JokeService]
 })
 export class JokesModule {
 

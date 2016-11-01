@@ -1,18 +1,21 @@
 ﻿import { Component, OnInit } from "@angular/core"
-import { JokeServiceSimple } from "./joke.service-simple"
+import { JokeService } from "./joke.service"
 import { Joke } from "./joke"
+import 'rxjs/add/operator/map'; 
 
 @Component({
     selector: "joke-list-component",
     templateUrl: "jokes/joke-list.component.html",
-    providers: [JokeServiceSimple] 
+    providers: [JokeService] 
 })
 export class JokeListComponent implements OnInit {
 
-    constructor(private jokeService: JokeServiceSimple) { }
+    constructor(private jokeService: JokeService) { }
     jokes: Joke[];
 
     ngOnInit(): void {
-        this.jokes = this.jokeService.getRandomJokes(2);
+        this.jokeService
+            .getRandomJokes(2)
+            .subscribe(r => this.jokes = r.value);
     }
 }
