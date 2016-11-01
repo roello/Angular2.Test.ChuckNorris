@@ -3,7 +3,6 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { JokesResponse } from './JokesResponse';
-import { Joke } from './Joke';
 
 @Injectable()
 export class JokeService {   
