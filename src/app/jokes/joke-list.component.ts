@@ -1,11 +1,18 @@
-﻿import { Component } from "@angular/core"
-import { JokesResponse } from "./jokesResponse"
-import { JokeService } from "./joke.service"
+﻿import { Component, OnInit } from "@angular/core"
+import { JokeServiceSimple } from "./joke.service-simple"
+import { Joke } from "./joke"
 
 @Component({
     selector: "joke-list-component",
-    templateUrl: "jokes/joke-list.component.html"
+    templateUrl: "jokes/joke-list.component.html",
+    providers: [JokeServiceSimple] 
 })
-export class JokeListComponent {
-    
+export class JokeListComponent implements OnInit {
+
+    constructor(private jokeService: JokeServiceSimple) { }
+    jokes: Joke[];
+
+    ngOnInit(): void {
+        this.jokes = this.jokeService.getRandomJokes(2);
+    }
 }

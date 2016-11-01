@@ -10,22 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var jokes = { type: "success", value: [{ id: "1", joke: "hahah" }, { id: "2", joke: "whohhah" }] };
-var JokeService = (function () {
-    function JokeService() {
+var JokeServiceSimple = (function () {
+    function JokeServiceSimple() {
     }
-    JokeService.prototype.getRandomJokes = function (count) {
+    JokeServiceSimple.prototype.getRandomJokes = function (count) {
         var _this = this;
         return jokes.value.map(function (j) { return _this.clone(j); }).slice(0, count);
     };
-    JokeService.prototype.clone = function (object) {
-        // hack
+    JokeServiceSimple.prototype.clone = function (object) {
         return JSON.parse(JSON.stringify(object));
     };
-    JokeService = __decorate([
+    JokeServiceSimple = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], JokeService);
-    return JokeService;
+    ], JokeServiceSimple);
+    return JokeServiceSimple;
 }());
-exports.JokeService = JokeService;
-//# sourceMappingURL=joke.service.js.map
+exports.JokeServiceSimple = JokeServiceSimple;
+//# sourceMappingURL=joke.service-simple.js.map

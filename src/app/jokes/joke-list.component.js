@@ -9,15 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var joke_service_simple_1 = require("./joke.service-simple");
 var JokeListComponent = (function () {
-    function JokeListComponent() {
+    function JokeListComponent(jokeService) {
+        this.jokeService = jokeService;
     }
+    JokeListComponent.prototype.ngOnInit = function () {
+        this.jokes = this.jokeService.getRandomJokes(2);
+    };
     JokeListComponent = __decorate([
         core_1.Component({
             selector: "joke-list-component",
-            templateUrl: "jokes/joke-list.component.html"
+            templateUrl: "jokes/joke-list.component.html",
+            providers: [joke_service_simple_1.JokeServiceSimple]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [joke_service_simple_1.JokeServiceSimple])
     ], JokeListComponent);
     return JokeListComponent;
 }());

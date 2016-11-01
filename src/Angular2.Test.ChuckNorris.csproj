@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\jokes\joke-list.component.ts" />
+    <TypeScriptCompile Include="app\jokes\joke.service-simple.ts" />
     <TypeScriptCompile Include="app\jokes\joke.service.ts" />
     <TypeScriptCompile Include="app\jokes\joke.ts" />
     <TypeScriptCompile Include="app\jokes\jokes.module.ts" />
