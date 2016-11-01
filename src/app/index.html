@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Chuck Norris facts</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -26,8 +26,22 @@
     <div class="container">
         <div class="starter-template">
             <h1>Chuck Norris facts..</h1>
-            <joke-list-component></joke-list-component>            
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary" value="All">All</button>
+                    <button type="button" class="btn btn-default" value="Nerdy">Nerdy</button>
+                    <button type="button" class="btn btn-default" value="Explicit">Explicit</button>
+                    <button type="button" class="btn btn-default" value="Chuck Norris">Chuck Norris</button>
+                    <button type="button" class="btn btn-default" value="Bruce Schneier">Bruce Schneier</button>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <joke-list-component></joke-list-component>
+                </div>
+            </div>
         </div>
-    </div><!-- /.container -->    
+    </div><!-- /.container -->
 </body>
 </html>
