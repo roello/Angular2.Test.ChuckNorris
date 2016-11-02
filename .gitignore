@@ -21,3 +21,5 @@ src/app/jokes/jokesResponse.js
 src/app/jokes/jokesResponse.js.map
 src/app/main.js
 src/app/main.js.map
+src/app/jokes/joke.service-simple.js
+src/app/jokes/joke.service-simple.js.map
