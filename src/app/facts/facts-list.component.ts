@@ -4,8 +4,9 @@ import { Fact } from "./fact"
 import 'rxjs/add/operator/map'
 
 @Component({
-    selector: "joke-list-component",
-    templateUrl: "jokes/facts-list.component.html",
+    moduleId: module.id,
+    selector: "facts-list-component",
+    templateUrl: "facts-list.component.html",
     providers: [FactsService] 
 })
 export class FactsListComponent implements OnInit {

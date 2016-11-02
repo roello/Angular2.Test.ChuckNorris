@@ -23,8 +23,9 @@ var FactsListComponent = (function () {
     };
     FactsListComponent = __decorate([
         core_1.Component({
-            selector: "joke-list-component",
-            templateUrl: "jokes/facts-list.component.html",
+            moduleId: module.id,
+            selector: "facts-list-component",
+            templateUrl: "facts-list.component.html",
             providers: [facts_service_1.FactsService]
         }), 
         __metadata('design:paramtypes', [facts_service_1.FactsService])
