@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import { JokesResponse } from './JokesResponse';
-import { Joke } from './Joke';
+import { JokesResponse } from './factsResponse';
+import { Joke } from './fact';
 
 const jokes : JokesResponse = { type: "success", value: [{ id: "1", joke: "hahah" }, { id: "2", joke: "whohhah" }] } 
 

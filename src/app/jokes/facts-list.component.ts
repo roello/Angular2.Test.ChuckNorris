@@ -1,11 +1,11 @@
 ﻿import { Component, OnInit } from "@angular/core"
-import { JokeService } from "./joke.service"
-import { Joke } from "./joke"
-import 'rxjs/add/operator/map'; 
+import { JokeService } from "./facts.service"
+import { Joke } from "./fact"
+import 'rxjs/add/operator/map'
 
 @Component({
     selector: "joke-list-component",
-    templateUrl: "jokes/joke-list.component.html",
+    templateUrl: "jokes/facts-list.component.html",
     providers: [JokeService] 
 })
 export class JokeListComponent implements OnInit {

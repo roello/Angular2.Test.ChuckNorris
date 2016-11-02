@@ -2,7 +2,7 @@
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { JokesResponse } from './JokesResponse';
+import { JokesResponse } from './factsResponse';
 
 @Injectable()
 export class JokeService {   

@@ -1,4 +1,4 @@
-﻿import { Joke } from "./joke"
+﻿import { Joke } from "./fact"
 
 export class JokesResponse {
     type: string;
