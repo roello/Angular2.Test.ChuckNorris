@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var facts_service_1 = require("./facts.service");
+var joke_service_1 = require("./joke.service");
 require('rxjs/add/operator/map');
 var JokeListComponent = (function () {
     function JokeListComponent(jokeService) {
@@ -24,12 +24,12 @@ var JokeListComponent = (function () {
     JokeListComponent = __decorate([
         core_1.Component({
             selector: "joke-list-component",
-            templateUrl: "jokes/facts-list.component.html",
-            providers: [facts_service_1.JokeService]
+            templateUrl: "jokes/joke-list.component.html",
+            providers: [joke_service_1.JokeService]
         }), 
-        __metadata('design:paramtypes', [facts_service_1.JokeService])
+        __metadata('design:paramtypes', [joke_service_1.JokeService])
     ], JokeListComponent);
     return JokeListComponent;
 }());
 exports.JokeListComponent = JokeListComponent;
-//# sourceMappingURL=facts-list.component.js.map
+//# sourceMappingURL=joke-list.component.js.map

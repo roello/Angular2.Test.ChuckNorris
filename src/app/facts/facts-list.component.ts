@@ -1,17 +1,17 @@
 ﻿import { Component, OnInit } from "@angular/core"
-import { JokeService } from "./facts.service"
-import { Joke } from "./fact"
+import { FactsService } from "./facts.service"
+import { Fact } from "./fact"
 import 'rxjs/add/operator/map'
 
 @Component({
     selector: "joke-list-component",
     templateUrl: "jokes/facts-list.component.html",
-    providers: [JokeService] 
+    providers: [FactsService] 
 })
-export class JokeListComponent implements OnInit {
+export class FactsListComponent implements OnInit {
 
-    constructor(private jokeService: JokeService) { }
-    jokes: Joke[];
+    constructor(private jokeService: FactsService) { }
+    jokes: Fact[];
 
     ngOnInit(): void {
         this.jokeService

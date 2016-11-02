@@ -2,15 +2,15 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { JokeListComponent } from "./facts-list.component";
-import { JokeService } from "./facts.service";
+import { FactsListComponent } from "./facts-list.component";
+import { FactsService } from "./facts.service";
 
 @NgModule({
     imports: [BrowserModule, HttpModule],
-    declarations: [JokeListComponent],
-    bootstrap: [JokeListComponent],
-    providers: [JokeService]
+    declarations: [FactsListComponent],
+    bootstrap: [FactsListComponent],
+    providers: [FactsService]
 })
-export class JokesModule {
+export class FactsModule {
 
 }

@@ -5,4 +5,4 @@ var Joke = (function () {
     return Joke;
 }());
 exports.Joke = Joke;
-//# sourceMappingURL=fact.js.map
+//# sourceMappingURL=joke.js.map

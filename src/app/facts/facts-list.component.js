@@ -9,23 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var http_1 = require('@angular/http');
-var facts_list_component_1 = require("./facts-list.component");
 var facts_service_1 = require("./facts.service");
-var JokesModule = (function () {
-    function JokesModule() {
+require('rxjs/add/operator/map');
+var FactsListComponent = (function () {
+    function FactsListComponent(jokeService) {
+        this.jokeService = jokeService;
     }
-    JokesModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [facts_list_component_1.JokeListComponent],
-            bootstrap: [facts_list_component_1.JokeListComponent],
-            providers: [facts_service_1.JokeService]
+    FactsListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.jokeService
+            .getRandomJokes(5)
+            .subscribe(function (r) { return _this.jokes = r.value; });
+    };
+    FactsListComponent = __decorate([
+        core_1.Component({
+            selector: "joke-list-component",
+            templateUrl: "jokes/facts-list.component.html",
+            providers: [facts_service_1.FactsService]
         }), 
-        __metadata('design:paramtypes', [])
-    ], JokesModule);
-    return JokesModule;
+        __metadata('design:paramtypes', [facts_service_1.FactsService])
+    ], FactsListComponent);
+    return FactsListComponent;
 }());
-exports.JokesModule = JokesModule;
-//# sourceMappingURL=facts.module.js.map
+exports.FactsListComponent = FactsListComponent;
+//# sourceMappingURL=facts-list.component.js.map

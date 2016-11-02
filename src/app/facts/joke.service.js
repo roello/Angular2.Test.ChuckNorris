@@ -31,4 +31,4 @@ var JokeService = (function () {
     return JokeService;
 }());
 exports.JokeService = JokeService;
-//# sourceMappingURL=facts.service.js.map
+//# sourceMappingURL=joke.service.js.map

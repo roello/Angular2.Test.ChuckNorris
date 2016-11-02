@@ -1,13 +1,13 @@
 ﻿import { Injectable } from '@angular/core';
-import { JokesResponse } from './factsResponse';
-import { Joke } from './fact';
+import { FactsResponse } from './factsResponse';
+import { Fact } from './fact';
 
-const jokes : JokesResponse = { type: "success", value: [{ id: "1", joke: "hahah" }, { id: "2", joke: "whohhah" }] } 
+const jokes: FactsResponse = { type: "success", value: [{ id: "1", joke: "hahah" }, { id: "2", joke: "whohhah" }] } 
 
 @Injectable()
 export class JokeServiceSimple {    
 
-    getRandomJokes(count: number): Joke[] {
+    getRandomJokes(count: number): Fact[] {
         return jokes.value.map(j => this.clone(j)).slice(0, count);
     }
 

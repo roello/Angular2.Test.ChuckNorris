@@ -102,7 +102,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="tsconfig.json" />
-    <Content Include="app\jokes\facts-list.component.html" />
+    <Content Include="app\facts\facts-list.component.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -124,13 +124,13 @@
     <Folder Include="app\shared\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\jokes\category-selection.component.ts" />
-    <TypeScriptCompile Include="app\jokes\facts-list.component.ts" />
-    <TypeScriptCompile Include="app\jokes\facts.service-simple.ts" />
-    <TypeScriptCompile Include="app\jokes\facts.service.ts" />
-    <TypeScriptCompile Include="app\jokes\fact.ts" />
-    <TypeScriptCompile Include="app\jokes\facts.module.ts" />
-    <TypeScriptCompile Include="app\jokes\factsResponse.ts" />
+    <TypeScriptCompile Include="app\facts\category-selection.component.ts" />
+    <TypeScriptCompile Include="app\facts\facts-list.component.ts" />
+    <TypeScriptCompile Include="app\facts\facts.service-simple.ts" />
+    <TypeScriptCompile Include="app\facts\facts.service.ts" />
+    <TypeScriptCompile Include="app\facts\fact.ts" />
+    <TypeScriptCompile Include="app\facts\facts.module.ts" />
+    <TypeScriptCompile Include="app\facts\factsResponse.ts" />
     <TypeScriptCompile Include="app\main.ts" />
   </ItemGroup>
   <ItemGroup>
