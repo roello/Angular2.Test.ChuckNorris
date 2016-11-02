@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\facts\category-selection.component.ts" />
+    <TypeScriptCompile Include="app\facts\category.ts" />
     <TypeScriptCompile Include="app\facts\facts-list.component.ts" />
     <TypeScriptCompile Include="app\facts\facts.service-simple.ts" />
     <TypeScriptCompile Include="app\facts\facts.service.ts" />

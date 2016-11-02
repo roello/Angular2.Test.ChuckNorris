@@ -15,6 +15,7 @@ export class FactsService {
     getRandomJokes(count: number): Observable<FactsResponse> {
         let url = `${this.apiRandomJokesUrl}${count}`;
         console.log(url);
+
         let jResponse = this.http.get(url)
             .map(response => response.json());
         return jResponse; 

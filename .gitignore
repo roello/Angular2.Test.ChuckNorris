@@ -23,3 +23,5 @@ src/app/main.js
 src/app/main.js.map
 src/app/jokes/joke.service-simple.js
 src/app/jokes/joke.service-simple.js.map
+/src/app/facts/category.js
+/src/app/facts/category.js.map
