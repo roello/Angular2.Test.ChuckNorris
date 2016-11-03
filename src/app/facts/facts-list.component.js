@@ -18,8 +18,8 @@ var FactsListComponent = (function () {
     FactsListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.jokeService
-            .getRandomJokes(5)
-            .subscribe(function (r) { return _this.jokes = r.value; });
+            .getRandomJokes(10)
+            .subscribe(function (r) { return _this.jokes = r.value.map(decodeJoke); });
     };
     FactsListComponent = __decorate([
         core_1.Component({
@@ -33,4 +33,10 @@ var FactsListComponent = (function () {
     return FactsListComponent;
 }());
 exports.FactsListComponent = FactsListComponent;
+function decodeJoke(fact) {
+    return {
+        id: fact.id,
+        joke: fact.joke.replace(/&quot;/g, '\"')
+    };
+}
 //# sourceMappingURL=facts-list.component.js.map

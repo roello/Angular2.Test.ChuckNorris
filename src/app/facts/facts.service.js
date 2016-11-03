@@ -11,17 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/do'); // debug
 var FactsService = (function () {
     function FactsService(http) {
         this.http = http;
         this.apiRandomJokesUrl = 'http://api.icndb.com/jokes/random/'; // URL to get number of random jokes
         this.apiCategoriesUrl = 'http://api.icndb.com/categories'; // URL to get categories
+        this.errorResponse = { type: '', value: [''] };
     }
+    ;
     FactsService.prototype.getRandomJokes = function (count) {
         var url = "" + this.apiRandomJokesUrl + count;
         console.log(url);
         var jResponse = this.http.get(url)
             .map(function (response) { return response.json(); });
+        return jResponse;
+    };
+    FactsService.prototype.getAllCategories = function () {
+        var jResponse = this.http.get(this.apiCategoriesUrl)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('server data:', data); }); // debug
         return jResponse;
     };
     FactsService = __decorate([

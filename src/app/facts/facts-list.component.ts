@@ -13,10 +13,17 @@ export class FactsListComponent implements OnInit {
 
     constructor(private jokeService: FactsService) { }
     jokes: Fact[];
-
+    
     ngOnInit(): void {
         this.jokeService
-            .getRandomJokes(5)
-            .subscribe(r => this.jokes = r.value);
-    }
+            .getRandomJokes(10)
+            .subscribe(r => this.jokes = r.value.map(decodeJoke));
+    }    
+}
+
+function decodeJoke(fact: Fact): Fact {    
+    return {
+        id: fact.id,
+        joke: fact.joke.replace(/&quot;/g, '\"')
+    }      
 }
