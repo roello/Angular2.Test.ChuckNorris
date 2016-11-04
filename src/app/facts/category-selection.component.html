@@ -1,3 +1,3 @@
 ﻿<div class="btn-group">
-    <button type="button" class="btn btn-primary" [ngClass]="selectedCategory === 'nerdy' ? 'btn btn-primary' : 'btn btn-default'" *ngFor="let cat of categories" value="{{cat}}">{{cat}}</button>
+    <button *ngFor="let cat of categories" value="{{cat}}" type="button" class="{{cat === selectedCategory ? 'btn btn-primary':'btn btn-default' }}" >{{cat}}</button>
 </div>
