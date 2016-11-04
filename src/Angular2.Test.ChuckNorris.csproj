@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\facts\category-selection.component.html" />
     <Content Include="css\sticky-footer-navbar.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
