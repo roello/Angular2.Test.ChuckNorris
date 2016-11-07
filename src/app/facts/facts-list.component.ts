@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from "@angular/core"
+﻿import { Component, Input, OnInit, ChangeDetectionStrategy } from "@angular/core"
 import { FactsService } from "./facts.service"
 import { Fact } from "./fact"
 import 'rxjs/add/operator/map'
