@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { OnInit } from '@angular/core';
 import { FactsService } from './facts.service';
@@ -6,17 +6,19 @@ import { FactsService } from './facts.service';
 @Component({
     moduleId: module.id,
     selector: "category-selection",
-    templateUrl: "category-selection.component.html",
-    //template: `<button type="button" class="btn btn-primary"[ngClass] = "selectedCategory === 'nerdy' ? 'btn btn-primary' : 'btn btn-default'" * ngFor="let cat of categories" value= "{{cat}}" > {{cat }}</button><button type="button" class="btn btn-primary" [ngClass]="selectedCategory === 'nerdy' ? 'btn btn-primary' : 'btn btn-default'" *ngFor="let cat of categories" value="{{cat}}">{{cat}}</button>`,
-    providers: [FactsService] 
+    template: `<div class="btn-group">
+                    <button *ngFor="let cat of categories" value="{{cat}}" type="button" class="{{cat === selectedCategory ? 'btn btn-primary':'btn btn-default' }}" (click)="selectCategory(cat)">{{cat}}</button>
+               </div>`,
+    providers: [FactsService]
 })
-export class CategorySelectionComponent implements OnInit{
+export class CategorySelectionComponent implements OnInit {
+    @Output("onChange") public onChange = new EventEmitter();
     
     categories: Array<string>;
-    selectedCategory: string;
+    selectedCategory: string = "all";    
 
-    constructor(private factsService: FactsService) {  }
-    
+    constructor(private factsService: FactsService) { }
+
     ngOnInit(): void {
         this.categories = new Array<string>();
 
@@ -24,10 +26,15 @@ export class CategorySelectionComponent implements OnInit{
         this.factsService
             .getAllCategories()
             .subscribe(r => this.categories = this.categories.concat(r.value));
-        
-        this.selectedCategory = "all";        
-    }   
-} 
+    }
+
+    selectCategory(category: string) {
+        this.selectedCategory = category;
+        this.onChange.emit({
+            value: category
+        });
+    }    
+}
 
 //Use this in the view somehow, with directive ?
 function toTitleCase(str: string): string {

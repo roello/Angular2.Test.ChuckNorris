@@ -96,7 +96,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\facts\category-selection.component.html" />
     <Content Include="css\sticky-footer-navbar.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -127,6 +126,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\facts\category-selection.component.ts" />
     <TypeScriptCompile Include="app\facts\categoryResponse.ts" />
+    <TypeScriptCompile Include="app\facts\facts.component.ts" />
     <TypeScriptCompile Include="app\facts\facts-list.component.ts" />
     <TypeScriptCompile Include="app\facts\facts.service-simple.ts" />
     <TypeScriptCompile Include="app\facts\facts.service.ts" />

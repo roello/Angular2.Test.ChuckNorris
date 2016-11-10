@@ -41,3 +41,5 @@ src/app/jokes/joke.service-simple.js.map
 /src/app/facts/categoryResponse.js
 /src/app/facts/category-selection.component.js.map
 /src/app/facts/category-selection.component.js
+src/app/facts/facts.component.js
+src/app/facts/facts.component.js.map

@@ -22,7 +22,8 @@ export class FactsService {
         console.log(url);
 
         let jResponse = this.http.get(url)
-            .map(response => response.json());
+            .map(response => response.json())
+            .do(data => console.log('server data:', data));  // debug;
         return jResponse; 
     }    
 
