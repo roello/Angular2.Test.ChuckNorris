@@ -14,7 +14,7 @@ import { CategorySelectionComponent } from "./category-selection.component"
                 </div>
                 <div class="row">
                     <div class="col-md-10"> 
-                        <facts-list-component></facts-list-component>
+                        <facts-list-component [selectedCategory]="selectedCategory"></facts-list-component>
                     </div>
                 </div>`
             
@@ -22,9 +22,9 @@ import { CategorySelectionComponent } from "./category-selection.component"
 export class FactsComponent  {
     selectedCategory: string;  
 
-
     handleChange(data) : void{
         console.log('event', data);
+        this.selectedCategory = data.value;
     }
 }
 

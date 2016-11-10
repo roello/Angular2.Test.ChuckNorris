@@ -34,4 +34,13 @@ export class FactsService {
                         
         return jResponse; 
     }
+
+    getRandomFilteredJokes(count: number, category: string): Observable<FactsResponse> {
+        let url = `${this.apiRandomJokesUrl}${count}/?limitTo=${category}`;
+
+        let jResponse = this.http.get(url)
+            .map(response => response.json())
+            .do(data => console.log('server data:', data));  // debug;
+        return jResponse;      
+    }
 } 
