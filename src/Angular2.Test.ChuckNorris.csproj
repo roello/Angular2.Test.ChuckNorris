@@ -120,9 +120,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="app\facts\category-selection.component.ts" />
     <TypeScriptCompile Include="app\facts\categoryResponse.ts" />
@@ -134,6 +132,7 @@
     <TypeScriptCompile Include="app\facts\facts.module.ts" />
     <TypeScriptCompile Include="app\facts\factsResponse.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\shared\capitalization.pipe.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

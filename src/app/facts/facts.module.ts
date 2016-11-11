@@ -6,10 +6,11 @@ import { FactsListComponent } from "./facts-list.component"
 import { FactsComponent } from "./facts.component"
 import { CategorySelectionComponent } from "./category-selection.component"
 import { FactsService } from "./facts.service"
+import { Capitalize } from "../shared/capitalization.pipe"
 
 @NgModule({
     imports: [BrowserModule, HttpModule],
-    declarations: [FactsComponent, FactsListComponent, CategorySelectionComponent],
+    declarations: [FactsComponent, FactsListComponent, CategorySelectionComponent, Capitalize],
     bootstrap: [FactsComponent],
     providers: [FactsService]
 })

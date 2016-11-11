@@ -7,7 +7,7 @@ import { FactsService } from './facts.service';
     moduleId: module.id,
     selector: "category-selection",
     template: `<div class="btn-group">
-                    <button *ngFor="let cat of categories" value="{{cat}}" type="button" class="{{cat === selectedCategory ? 'btn btn-primary':'btn btn-default' }}" (click)="selectCategory(cat)">{{cat}}</button>
+                    <button *ngFor="let cat of categories" value="{{cat}}" type="button" class="{{cat === selectedCategory ? 'btn btn-primary':'btn btn-default' }}" (click)="selectCategory(cat)">{{cat | capitalize}}</button>
                </div>`,
     providers: [FactsService]
 })
@@ -34,10 +34,4 @@ export class CategorySelectionComponent implements OnInit {
             value: category
         });
     }    
-}
-
-//Use this in the view somehow, with directive ?
-function toTitleCase(str: string): string {
-    let upperCased = str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
-    return upperCased;
 }
