@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 @Component({
     moduleId: module.id,
     selector: "facts-list-component",
-    templateUrl: "facts-list.component.html",
+    template: `<blockquote *ngFor="let joke of jokes" style="list-style-type:none">{{joke.joke}}</blockquote>`,
     providers: [FactsService] 
 })
 export class FactsListComponent implements OnInit {
