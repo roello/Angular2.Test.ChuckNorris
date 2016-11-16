@@ -9,13 +9,11 @@ import 'rxjs/add/operator/map'
     template: `<blockquote *ngFor="let joke of jokes" style="list-style-type:none">{{joke.joke}}</blockquote>`,
     providers: [FactsService] 
 })
-export class FactsListComponent implements OnInit {
+export class FactsListComponent {
     @Input() selectedCategory: string;
-
-    constructor(private jokeService: FactsService) { }
     jokes: Fact[];
-    
-    ngOnInit(): void {
+
+    constructor(private jokeService: FactsService) {
         this.jokeService
             .getRandomJokes(5)
             .subscribe(r => this.jokes = r.value.map(decodeJoke));

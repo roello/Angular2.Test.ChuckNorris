@@ -12,20 +12,24 @@ import { FactsService } from './facts.service';
     providers: [FactsService]
 })
 export class CategorySelectionComponent implements OnInit {
-    @Output("onChange") public onChange = new EventEmitter();
-    
+    @Output("onChange") public onChange = new EventEmitter();    
     categories: Array<string>;
-    selectedCategory: string = "all";    
+    initialCategory = 'all' 
+    selectedCategory: string = this.initialCategory;        
 
     constructor(private factsService: FactsService) { }
 
     ngOnInit(): void {
         this.categories = new Array<string>();
 
-        this.categories.push('all');
+        this.categories.push(this.initialCategory);
         this.factsService
             .getAllCategories()
             .subscribe(r => this.categories = this.categories.concat(r.value));
+
+        this.onChange.emit({
+            value: this.initialCategory
+        });
     }
 
     selectCategory(category: string) {
