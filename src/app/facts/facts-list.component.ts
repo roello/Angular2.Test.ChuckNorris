@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map'
                     <div *ngIf="errorMsg" class="alert alert-danger">  
                         {{ errorMsg }}
                     </div>  
+                    <p *ngIf="!jokes && !errorMsg"><em>Loading...</em></p>
                     <blockquote *ngFor="let joke of jokes" style="list-style-type:none">{{joke.joke}}</blockquote>
                 </div>`,
     providers: [FactsService] 
