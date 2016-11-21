@@ -1,6 +1,5 @@
-﻿import { Component, Output, Input, EventEmitter } from '@angular/core';
+﻿import { Component, Output, Input, EventEmitter, OnInit, OnDestroy} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { OnInit } from '@angular/core';
 import { FactsService } from './facts.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { FactsService } from './facts.service';
                </div>`,
     providers: [FactsService]
 })
-export class CategorySelectionComponent implements OnInit {
+export class CategorySelectionComponent implements OnInit, OnDestroy  {
     @Output("onChange") public onChange = new EventEmitter();    
     categories: Array<string>;
     initialCategory = 'all' 
@@ -20,6 +19,8 @@ export class CategorySelectionComponent implements OnInit {
     constructor(private factsService: FactsService) { }
 
     ngOnInit(): void {
+
+        console.log('ngOnInit');
         this.categories = new Array<string>();
 
         this.categories.push(this.initialCategory);
@@ -31,6 +32,8 @@ export class CategorySelectionComponent implements OnInit {
             value: this.initialCategory
         });
     }
+
+    ngOnDestroy() { console.log('ngOnDestroy'); }
 
     selectCategory(category: string) {
         this.selectedCategory = category;

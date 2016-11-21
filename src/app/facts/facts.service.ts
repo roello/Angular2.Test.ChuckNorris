@@ -22,15 +22,14 @@ export class FactsService {
         console.log(url);
 
         let jResponse = this.http.get(url)
-            .map(response => response.json())
-            .do(data => console.log('server data:', data));  // debug;
+            .map(response => response.json());
+            
         return jResponse; 
     }    
 
-    getAllCategories(): Observable <CategoryResponse>{
+    getAllCategories(): Observable<CategoryResponse>{
         let jResponse = this.http.get(this.apiCategoriesUrl)
-            .map(response => response.json())
-            .do(data => console.log('server data:', data));  // debug
+            .map(response => response.json());            
                         
         return jResponse; 
     }
@@ -39,8 +38,8 @@ export class FactsService {
         let url = `${this.apiRandomJokesUrl}${count}/?limitTo=${category}`;
 
         let jResponse = this.http.get(url)
-            .map(response => response.json())
-            .do(data => console.log('server data:', data));  // debug;
+            .map(response => response.json());
+            
         return jResponse;      
     }
 } 

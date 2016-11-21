@@ -2,7 +2,7 @@
 import { FactsResponse } from './factsResponse';
 import { Fact } from './fact';
 
-const jokes: FactsResponse = { type: "success", value: [{ id: "1", joke: "hahah" }, { id: "2", joke: "whohhah" }] } 
+const jokes: FactsResponse = { type: "success", value: [{ categories: [], id: "1", joke: "hahah" }, { categories: [], id: "2", joke: "whohhah" }] } 
 
 @Injectable()
 export class JokeServiceSimple {    

@@ -41,6 +41,7 @@ export class FactsListComponent {
 
 function decodeJoke(fact: Fact): Fact {    
     return {
+        categories: fact.categories,
         id: fact.id,
         joke: fact.joke.replace(/&quot;/g, '\"')
     }      
