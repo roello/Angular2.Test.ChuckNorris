@@ -6,6 +6,9 @@ import { FactsService } from './facts.service';
     moduleId: module.id,
     selector: "category-selection",
     template: `<div class="btn-group">
+                    <div *ngIf="errorMsg" class="alert alert-danger">  
+                        {{ errorMsg }}
+                    </div>  
                     <button *ngFor="let cat of categories" value="{{cat}}" type="button" class="{{cat === selectedCategory ? 'btn btn-primary':'btn btn-default' }}" (click)="selectCategory(cat)">{{cat | capitalize}}</button>
                </div>`,
     providers: [FactsService]
@@ -13,6 +16,7 @@ import { FactsService } from './facts.service';
 export class CategorySelectionComponent implements OnInit, OnDestroy  {
     @Output("onChange") public onChange = new EventEmitter();    
     categories: Array<string>;
+    errorMsg: any;
     initialCategory = 'all' 
     selectedCategory: string = this.initialCategory;        
 
@@ -26,7 +30,7 @@ export class CategorySelectionComponent implements OnInit, OnDestroy  {
         this.categories.push(this.initialCategory);
         this.factsService
             .getAllCategories()
-            .subscribe(r => this.categories = this.categories.concat(r.value));
+            .subscribe(r => this.categories = this.categories.concat(r));
 
         this.onChange.emit({
             value: this.initialCategory

@@ -1,22 +1,27 @@
 ﻿import { Component, Input, OnInit, SimpleChange, ChangeDetectionStrategy } from "@angular/core"
 import { FactsService } from "./facts.service"
+import { FactsResponse } from "./factsResponse"
 import { Fact } from "./fact"
 import 'rxjs/add/operator/map'
 
 @Component({
     moduleId: module.id,
     selector: "facts-list-component",
-    template: `<blockquote *ngFor="let joke of jokes" style="list-style-type:none">{{joke.joke}}</blockquote>`,
+    template: `<div>
+                    <div *ngIf="errorMsg" class="alert alert-danger">  
+                        {{ errorMsg }}
+                    </div>  
+                    <blockquote *ngFor="let joke of jokes" style="list-style-type:none">{{joke.joke}}</blockquote>
+                </div>`,
     providers: [FactsService] 
 })
 export class FactsListComponent {
-    @Input() selectedCategory: string;
+    @Input() selectedCategory: string;    
+    errorMsg: any;
     jokes: Fact[];
 
     constructor(private jokeService: FactsService) {
-        this.jokeService
-            .getRandomJokes(5)
-            .subscribe(r => this.jokes = r.value.map(decodeJoke));
+        
     }    
 
     ngOnChanges(changes: SimpleChange) {
@@ -26,23 +31,28 @@ export class FactsListComponent {
                 {
                     this.jokeService
                         .getRandomJokes(5)
-                        .subscribe(r => this.jokes = r.value.map(decodeJoke));
+                        .subscribe(
+                            r => this.jokes = r.map(this.decodeJoke),
+                            error => this.errorMsg = <any>error
+                    );
                 }
                 break;
             default:
                 {
                     this.jokeService
                         .getRandomFilteredJokes(5, this.selectedCategory)
-                        .subscribe(r => this.jokes = r.value.map(decodeJoke));                    
+                        .subscribe(
+                            r => this.jokes = r.map(this.decodeJoke),
+                            error => this.errorMsg = <any>error);                    
                 }
         }        
     }
-}
 
-function decodeJoke(fact: Fact): Fact {    
-    return {
-        categories: fact.categories,
-        id: fact.id,
-        joke: fact.joke.replace(/&quot;/g, '\"')
-    }      
+    private decodeJoke(fact: Fact): Fact {
+        return {
+            categories: fact.categories,
+            id: fact.id,
+            joke: fact.joke.replace(/&quot;/g, '\"')
+        }
+    }
 }
