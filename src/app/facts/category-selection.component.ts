@@ -32,9 +32,7 @@ export class CategorySelectionComponent implements OnInit, OnDestroy  {
             .getAllCategories()
             .subscribe(r => this.categories = this.categories.concat(r));
 
-        this.onChange.emit({
-            value: this.initialCategory
-        });
+        this.selectCategory(this.initialCategory);            
     }
 
     ngOnDestroy() { console.log('ngOnDestroy'); }
